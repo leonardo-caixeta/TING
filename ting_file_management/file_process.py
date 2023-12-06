@@ -18,8 +18,12 @@ def process(path_file, instance: Queue):
     print(new_item, file=sys.stdout)
 
 
-def remove(instance):
-    """Aqui irá sua implementação"""
+def remove(instance: Queue):
+    if not len(instance):
+        return print("Não há elementos", file=sys.stdout)
+
+    removed_item = instance.dequeue()['nome_do_arquivo']
+    print(f"Arquivo {removed_item} removido com sucesso", file=sys.stdout)
 
 
 def file_metadata(instance, position):
@@ -32,4 +36,5 @@ process('statics/arquivo_teste.txt', queue)
 print(1)
 process('statics/arquivo_teste.txt', queue)
 print(2)
-print(queue)
+print(len(queue))
+print(remove(queue))
