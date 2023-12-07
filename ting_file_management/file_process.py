@@ -33,13 +33,3 @@ def file_metadata(instance: Queue, position):
 
     except IndexError:
         print("Posição inválida", file=sys.stderr)
-
-
-queue = Queue()
-
-process('statics/arquivo_teste.txt', queue)
-print(1)
-process('statics/arquivo_teste.txt', queue)
-print(2)
-print(len(queue))
-print(remove(queue))
