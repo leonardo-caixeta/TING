@@ -1,19 +1,6 @@
 from ting_file_management.queue import Queue
 
 
-def word_verifier(lines, word, content):
-    occurrences = []
-
-    for i, line in enumerate(lines, start=1):
-        if word in line.lower():
-            if content:
-                occurrences.append({"linha": i, "conteudo": line})
-            else:
-                occurrences.append({"linha": i})
-
-    return occurrences
-
-
 def word_searcher(data, word: str, content: bool):
     result = []
 
@@ -31,6 +18,19 @@ def word_searcher(data, word: str, content: bool):
             result.append(to_return)
 
     return result
+
+
+def word_verifier(lines, word, content):
+    occurrences = []
+
+    for i, line in enumerate(lines, start=1):
+        if word in line.lower():
+            if content:
+                occurrences.append({"linha": i, "conteudo": line})
+            else:
+                occurrences.append({"linha": i})
+
+    return occurrences
 
 
 def exists_word(word: str, instance: Queue):
